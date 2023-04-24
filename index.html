@@ -1,0 +1,89 @@
+
+
+<body>
+  <div id="app">
+    <!-- Your existing code here -->
+    <!doctype html>
+    <html>
+
+    <head>
+      <title>Video to Text Converter</title>
+      <script src="node_modules/vue/dist/vue.js"></script>
+      <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+      <!-- Link the tailwind.css file -->
+      <link href="{{ url_for('static', filename='tailwind.css') }}" rel="stylesheet">
+    </head>
+
+    <body class="bg-cover bg-center h-screen" style="background-image: url('static/1.jpg')">
+      <!-- <a class="text-white font-bold text-sm absolute top-0 right-0 m-4 hover:underline" href="/templates/signup.html">SignUp</a> -->
+      <div class="pl-7 pt-32">
+        <h1 class="text-6xl pl-3 md:text-8xl lg:text-9xl font-bold text-red-600 animate-title"> SESH </h1>
+        <h2 class="text-2xl pl-3 lg:text-6xl md:text-4xl animate-title"> TRANSCRIBE </h2>
+          <h2 class="text-2xl pl-3 lg:text-6xl md:text-4xl animate-title"> VIDEO TO TEXT</h2>
+            <p class="pt-4 pl-3 text-xs md:text-base animate-title">Convert any video to a text transcription online</p>
+            
+
+            <form action="/convert" method="post" enctype="multipart/form-data">
+              <!-- Existing file input field -->
+              <input
+                class=" mb-3 rounded-sm py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider border-none  lg:border-black border-2"
+                type="file" name="file">
+
+              <!-- New input field for link -->
+              <!-- <label for="link">Or enter a link:</label>
+              <input class="bg-green-300" type="text" name="link" id="link"> -->
+
+              <!-- Existing language select field -->
+              <select name="language" id="language"
+                class="mt-4 rounded-md py-2 px-3 uppercase text-xs font-bold text-white cursor-pointer tracking-wider ml-3 border-black border-2 bg-red-500 hover:bg-red-300">
+                <option value="en">English</option>
+                <option value="fr">French</option>
+                <option value="es">Spanish</option>
+                <option value="de">German</option>
+                <option value="it">Italian</option>
+                <option value="ja">Japanese</option>
+                <option value="ko">Korean</option>
+                <option value="pt">Portuguese</option>
+                <option value="ru">Russian</option>
+                <option value="zh-CN">Simplified Chinese</option>
+                <option value="zh-TW">Traditional Chinese</option>
+                <option value="ar">Arabic</option>
+                <option value="hi">Hindi</option>
+                <option value="id">Indonesian</option>
+                <option value="ms">Malay</option>
+                <option value="th">Thai</option>
+                <option value="uk">Ukrainian</option>
+                <option value="vi">Vietnamese</option>
+                <option value="nl">Dutch</option>
+                <option value="pl">Polish</option>
+                <option value="tr">Turkish</option>
+                <option value="no">Norwegian</option>
+                <option value="sv">Swedish</option>
+                <option value="fi">Finnish</option>
+                <!-- Add more language options as needed -->
+              </select>
+
+              <br>
+
+              <input
+                class="mt-4 rounded-md py-2 px-3 uppercase text-xs font-bold text-white cursor-pointer tracking-wider ml-3 border-black border-2 bg-blue-400 hover:bg-green-400"
+                type="submit" value="Convert">
+            </form>
+
+
+            <!-- Update the form in index.html -->
+
+      </div>
+    </body>
+
+    </html>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      // Vue.js configuration options and components go here
+    });
+  </script>
+</body>

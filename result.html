@@ -1,0 +1,96 @@
+<body>
+  <div id="app">
+    <!-- Your existing code here -->
+    <!doctype html>
+    <html>
+
+    <head>
+      <title>Conversion Result</title>
+      <script src="node_modules/vue/dist/vue.js"></script>
+      <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+      <link href="{{ url_for('static', filename='tailwind.css') }}" rel="stylesheet">
+      <script src="https://kit.fontawesome.com/your_fontawesome_kit.js"></script>
+      <!-- Replace with your FontAwesome kit URL -->
+
+    </head>
+
+    <body class="bg-cover bg-center h-screen" style="background-image: url('static/2.jpg')">
+      <div class="container mt-4">
+        <h1 class="text-2xl ml-2">Sesh's Video to Text Conversion</h1>
+        <br>
+        <h2 class="text-2xl font-bold text-red-600 ml-2">Result:</h2>
+        <!-- Add class for result animation -->
+        <p class="ml-3 mr-48 mt-2 result-animation">{{ text }}</p>
+
+        <div class="dropdown mt-4">
+          <button
+            class="btn btn-primary dropdown-toggle mt-4 rounded-md py-2 px-3 uppercase  text-xs font-bold cursor-pointer tracking-wider ml-3 border-black border-2 bg-red-500 hover:bg-black text-white"
+            type="button" id="downloadButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="{{ url_for('download', filename=filename) }}">Download Text</a>
+            <svg class="w-5 inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+            </svg>
+          </button>
+        
+          <button
+            class="btn btn-primary ml-3 bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded border-black border-2"
+            onclick="copyText()"><i class="fas fa-copy"></i> Copy Text</button>
+        </div>
+
+      </div>
+      <script>
+        function copyText() {
+          /* Get the text element and social media links */
+          var textElement = document.querySelector(".ml-3.mr-48.mt-2");
+          var facebookLink = "https://www.facebook.com/your-facebook-link";
+          var twitterLink = "https://twitter.com/your-twitter-link";
+          /* Create a textarea element to hold the text */
+          var textareaElement = document.createElement("textarea");
+          /* Set the value of the textarea to the text content with social media links */
+          textareaElement.value = textElement.textContent + "\n\n" +
+            "Facebook: " + facebookLink + "\n" +
+            "Twitter: " + twitterLink + "\n" +
+            /* Append the textarea element to the DOM */
+            document.body.appendChild(textareaElement);
+          /* Select the text in the textarea */
+          textareaElement.select();
+          textareaElement.setSelectionRange(0, 99999); /* For mobile devices */
+          /* Copy the text to the clipboard */
+          document.execCommand("copy");
+          /* Remove the textarea element from the DOM */
+          textareaElement.remove();
+          /* Alert the user that the text has been copied */
+          alert("Text has been copied to clipboard.");
+        }
+      </script>
+
+      <!-- Add social media icons for sharing -->
+      <div class="mt-64">
+        <h1 class="mb-5 text-xl font-bold text-red-600 ml-2 ">Share the result</h1>
+        <a href="https://www.facebook.com/sharer.php?u=https://example.com" target="_blank"
+          class="btn btn-primary ml-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded border-black border-2"><i
+            class="fab fa-facebook-f"></i>Facebook</a>
+        <a href="https://twitter.com/intent/tweet?url=https://example.com&text=Check%20out%20this%20video%20to%20text%20conversion!"
+          target="_blank"
+          class="btn btn-primary ml-3 bg-blue-300 hover:bg-black text-white font-bold py-2 px-4 rounded border-black border-2"><i
+            class="fab fa-twitter"></i>Twitter</a>
+
+      </div>
+
+    </body>
+
+    </html>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      // Vue.js configuration options and components go here
+    });
+  </script>
+</body>
